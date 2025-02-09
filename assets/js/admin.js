@@ -6,13 +6,13 @@
 
   // Firebase configuration
   const firebaseConfig = {
-    apiKey: "AIzaSyDKHZ1viqinUqJcs4He9QGnq2Ld82jSt-M",
-    authDomain: "juli-tola.firebaseapp.com",
-    projectId: "juli-tola",
-    storageBucket: "juli-tola.appspot.com",
-    messagingSenderId: "452807393853",
-    appId: "1:452807393853:web:2c58c3ca257ea605f6e054",
-    measurementId: "G-FVNPXHKQLJ"
+    apiKey: "AIzaSyCZHoYBIZIdJyatQD6XJrsKaiawa3pJlT8",
+    authDomain: "stmaryshigh-725f8.firebaseapp.com",
+    projectId: "stmaryshigh-725f8",
+    storageBucket: "stmaryshigh-725f8.firebasestorage.app",
+    messagingSenderId: "771130921198",
+    appId: "1:771130921198:web:0b9dceb76ddcbaeb4c63ff",
+    measurementId: "G-2LN724WCJC"
   };
 
   // Initialize Firebase
