@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Data Form</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #000428, #004e92);
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      transition: background 0.5s ease;
+    }
+
+    .dark-mode {
+      background: linear-gradient(135deg, #1a1a1a, #333);
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      width: 90%;
+      max-width: 500px;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      margin: 2rem auto;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      color: #00bcd4;
+      animation: slideDown 0.8s ease-in-out;
+    }
+
+    .input-group {
+      position: relative;
+      margin: 1rem 0;
+    }
+
+    .input-group i {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #00bcd4;
+      font-size: 1.2rem;
+    }
+
+    input, select {
+      width: calc(100% - 3rem);
+      padding: 0.8rem 0.8rem 0.8rem 2.5rem;
+      margin: 0.5rem 0;
+      border: 2px solid #00bcd4;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      font-size: 1rem;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    input:focus, select:focus {
+      border-color: #ff4081;
+      transform: scale(1.05);
+    }
+
+    button {
+      width: 100%;
+      padding: 0.8rem;
+      margin-top: 1rem;
+      background: #00bcd4;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background: #ff4081;
+      transform: scale(1.05);
+    }
+
+    .footer {
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    .footer a {
+      color: #00bcd4;
+      text-decoration: none;
+      margin: 0 0.5rem;
+      transition: color 0.3s ease;
+    }
+
+    .footer a:hover {
+      color: #ff4081;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes glow {
+      0% { box-shadow: 0 0 10px #00bcd4; }
+      50% { box-shadow: 0 0 20px #ff4081; }
+      100% { box-shadow: 0 0 10px #00bcd4; }
+    }
+
+    .glow-effect {
+      animation: glow 2s infinite;
+    }
+  </style>
+</head>
+<body>
+  <div class="container glow-effect">
+    <h1>📝 Student Data Form</h1>
+
+    <form id="studentForm">
+      <div class="input-group">
+        <i class="fas fa-camera"></i>
+        <input type="file" id="profilePhoto" accept="image/*">
+      </div>
+
+      <div class="input-group">
+        <i class="fas fa-user"></i>
+        <input type="text" id="name" placeholder="Name" required>
+      </div>
+
+      <div class="input-group">
+        <i class="fas fa-user"></i>
+        <input type="text" id="surname" placeholder="Surname" required>
+      </div>
+
+      <div class="input-group">
+        <i class="fas fa-calendar"></i>
+        <input type="date" id="dob" placeholder="Date of Birth" required>
+      </div>
+
+      <div class="input-group">
+        <i class="fas fa-venus-mars"></i>
+        <select id="gender" required>
+          <option value="">Select Gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <div class="input-group">
+        <i class="fas fa-user-friends"></i>
+        <input type="text" id="parentName" placeholder="Parent Name" required>
+      </div>
+
+      <div class="input-group">
+        <i class="fas fa-phone"></i>
+        <input type="text" id="parentPhone" placeholder="Parent Phone Number" required>
+      </div>
+
+      <div class="input-group">
+        <i class="fas fa-map-marker-alt"></i>
+        <input type="text" id="address" placeholder="Address" required>
+      </div>
+
+      <div class="input-group">
+        <i class="fas fa-calendar-alt"></i>
+        <input type="number" id="year" placeholder="Year" required>
+      </div>
+
+      <div class="input-group">
+        <i class="fas fa-school"></i>
+        <input type="text" id="class" placeholder="Class" required>
+      </div>
+
+      <div class="input-group">
+        <i class="fas fa-book"></i>
+        <input type="text" id="term" placeholder="Term" required>
+      </div>
+
+      <button type="submit">Save</button>
+      <button type="button" onclick="resetForm()">Cancel</button>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('studentForm');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const studentData = {
+        profilePhoto: document.getElementById('profilePhoto').files[0],
+        name: document.getElementById('name').value,
+        surname: document.getElementById('surname').value,
+        dob: document.getElementById('dob').value,
+        gender: document.getElementById('gender').value,
+        parentName: document.getElementById('parentName').value,
+        parentPhone: document.getElementById('parentPhone').value,
+        address: document.getElementById('address').value,
+        year: document.getElementById('year').value,
+        class: document.getElementById('class').value,
+        term: document.getElementById('term').value,
+      };
+
+      try {
+        const response = await fetch('/api/students', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(studentData),
+        });
+
+        if (response.ok) {
+          alert('Student data saved successfully!');
+          resetForm();
+        } else {
+          alert('Failed to save student data.');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        alert('An error occurred. Please try again.');
+      }
+    });
+
+    function resetForm() {
+      form.reset();
+    }
+  </script>
+</body>
+</html>
