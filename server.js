@@ -48,7 +48,7 @@ function getGrade(mark) {
 
 // Routes
 // POST route to save student data
-app.post('/api/students', async (req, res) => {
+app.post('/students', async (req, res) => {
   try {
     const { name, surname, year, class: studentClass, term, subjects } = req.body;
     const gradedSubjects = subjects.map(subject => ({
@@ -74,7 +74,7 @@ app.post('/api/students', async (req, res) => {
 });
 
 // GET route to retrieve all students
-app.get('/api/students', async (req, res) => {
+app.get('/studentss', async (req, res) => {
   try {
     const students = await Student.find().sort({ name: 1 }); // Sort A-Z by name
     res.send(students);
@@ -84,7 +84,7 @@ app.get('/api/students', async (req, res) => {
 });
 
 // PUT route to update student data
-app.put('/api/students/:id', async (req, res) => {
+app.put('/students/:id', async (req, res) => {
   try {
     const student = await Student.findByIdAndUpdate(req.params.id, req.body, { new: true });
     res.send(student);
@@ -94,7 +94,7 @@ app.put('/api/students/:id', async (req, res) => {
 });
 
 // GET route to retrieve all students of a particular class
-app.get('/api/class/:className', async (req, res) => {
+app.get('/class/:className', async (req, res) => {
   const { className } = req.params;
   try {
     const students = await Student.find({ class: className });
