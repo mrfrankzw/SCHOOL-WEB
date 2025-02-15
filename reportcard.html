@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Data Form</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>   /* General Styles */
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #000428, #004e92);
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      transition: background 0.5s ease;
+    }
+
+    .dark-mode {
+      background: linear-gradient(135deg, #1a1a1a, #333);
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      width: 90%;
+      max-width: 500px;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      margin: 2rem auto;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      color: #00bcd4;
+      animation: slideDown 0.8s ease-in-out;
+    }
+
+    .input-group {
+      position: relative;
+      margin: 1rem 0;
+    }
+
+    .input-group i {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #00bcd4;
+      font-size: 1.2rem;
+    }
+
+    input, select {
+      width: calc(100% - 3rem);
+      padding: 0.8rem 0.8rem 0.8rem 2.5rem;
+      margin: 0.5rem 0;
+      border: 2px solid #00bcd4;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      font-size: 1rem;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    input:focus, select:focus {
+      border-color: #ff4081;
+      transform: scale(1.05);
+    }
+
+    button {
+      width: 100%;
+      padding: 0.8rem;
+      margin-top: 1rem;
+      background: #00bcd4;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background: #ff4081;
+      transform: scale(1.05);
+    }
+
+    .footer {
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    .footer a {
+      color: #00bcd4;
+      text-decoration: none;
+      margin: 0 0.5rem;
+      transition: color 0.3s ease;
+    }
+
+    .footer a:hover {
+      color: #ff4081;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes glow {
+      0% { box-shadow: 0 0 10px #00bcd4; }
+      50% { box-shadow: 0 0 20px #ff4081; }
+      100% { box-shadow: 0 0 10px #00bcd4; }
+    }
+
+    .glow-effect {
+      animation: glow 2s infinite;
+    }
+
+    /* Custom Styles for Subject and Report */
+    .subject-group {
+      display: flex;
+      justify-content: space-between;
+      margin: 1rem 0;
+    }
+
+    .subject-group input {
+      width: calc(45% - 10px);
+      margin: 0.5rem 0;
+    }
+
+    .subject-group button {
+      background-color: #ff4081;
+      color: white;
+      width: 48%;
+    }
+
+    .report-card {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 2rem;
+      margin-top: 2rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      max-width: 700px;
+      margin: 2rem auto;
+      text-align: center;
+    }
+
+    .report-card h3 {
+      color: #00bcd4;
+    }
+
+    /* Same CSS styling as before */
+    /* For brevity, I'll use the same CSS from your previous request here */
+  </style>
+</head>
+<body>
+  <div class="container glow-effect">
+    <h1>📝 Student Data Form</h1>
+
+    <form id="studentForm">
+      <!-- Form Fields (same as previous) -->
+      <div class="input-group">
+        <i class="fas fa-user"></i>
+        <input type="text" id="name" placeholder="Name" required>
+      </div>
+      <div class="input-group">
+        <i class="fas fa-user"></i>
+        <input type="text" id="surname" placeholder="Surname" required>
+      </div>
+      <div class="input-group">
+        <i class="fas fa-calendar"></i>
+        <input type="number" id="year" placeholder="Year" required>
+      </div>
+      <div class="input-group">
+        <i class="fas fa-school"></i>
+        <input type="text" id="class" placeholder="Class" required>
+      </div>
+      <div class="input-group">
+        <i class="fas fa-book"></i>
+        <input type="text" id="term" placeholder="Term" required>
+      </div>
+
+      <!-- Subject Entry Section -->
+      <div id="subjectsSection">
+        <div class="subject-group">
+          <input type="text" class="subjectName" placeholder="Subject Name">
+          <input type="number" class="subjectMark" placeholder="Subject Mark (0-100)">
+          <button type="button" class="addSubjectBtn">Add Subject</button>
+        </div>
+      </div>
+
+      <button type="submit">Save</button>
+      <button type="button" onclick="resetForm()">Cancel</button>
+    </form>
+    <button onclick="viewClassReports()">View Class Reports</button>
+  </div>
+
+  <div id="reportCard" class="report-card" style="display: none;">
+    <h2>Student Report Card</h2>
+    <div id="reportDetails"></div>
+    <h3>Grades</h3>
+    <div id="gradeDetails"></div>
+  </div>
+
+  <script>
+    const form = document.getElementById('studentForm');
+    const subjectsSection = document.getElementById('subjectsSection');
+    const reportCard = document.getElementById('reportCard');
+    const reportDetails = document.getElementById('reportDetails');
+    const gradeDetails = document.getElementById('gradeDetails');
+    let subjectCount = 1;
+
+    // Add Subject Logic
+    subjectsSection.addEventListener('click', (e) => {
+      if (e.target && e.target.classList.contains('addSubjectBtn')) {
+        if (subjectCount >= 12) {
+          alert('You can only add up to 12 subjects.');
+          return;
+        }
+
+        const subjectName = e.target.previousElementSibling.previousElementSibling.value;
+        const subjectMark = e.target.previousElementSibling.value;
+
+        if (!subjectName || !subjectMark || isNaN(subjectMark)) {
+          alert('Please enter valid subject details.');
+          return;
+        }
+
+        subjectCount++;
+        addSubjectField();
+      }
+    });
+
+    // Grade Calculation Logic
+    function getGrade(mark) {
+      if (mark >= 90) return 'A';
+      if (mark >= 80) return 'B';
+      if (mark >= 70) return 'C';
+      if (mark >= 60) return 'D';
+      if (mark >= 50) return 'E';
+      return 'U';
+    }
+
+    function addSubjectField() {
+      const newSubjectGroup = document.createElement('div');
+      newSubjectGroup.classList.add('subject-group');
+      newSubjectGroup.innerHTML = `
+        <input type="text" class="subjectName" placeholder="Subject Name">
+        <input type="number" class="subjectMark" placeholder="Subject Mark (0-100)">
+        <button type="button" class="addSubjectBtn">Add Subject</button>
+      `;
+      subjectsSection.appendChild(newSubjectGroup);
+    }
+
+    // Save Student Data
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const surname = document.getElementById('surname').value;
+      const year = document.getElementById('year').value;
+      const className = document.getElementById('class').value;
+      const term = document.getElementById('term').value;
+
+      const subjects = [];
+      const subjectMarks = document.querySelectorAll('.subjectMark');
+      const subjectNames = document.querySelectorAll('.subjectName');
+
+      subjectNames.forEach((subject, index) => {
+        const mark = parseInt(subjectMarks[index].value);
+        const grade = getGrade(mark);
+        subjects.push({ name: subject.value, mark, grade });
+      });
+
+      const studentData = { name, surname, year, class: className, term, subjects };
+
+      try {
+        const response = await fetch('http://localhost:5000/api/students', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(studentData),
+        });
+
+        if (response.ok) {
+          alert('Student data saved successfully!');
+          resetForm();
+        } else {
+          alert('Failed to save student data.');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        alert('An error occurred. Please try again.');
+      }
+    });
+
+    // Reset Form
+    function resetForm() {
+      form.reset();
+      subjectCount = 1;
+      subjectsSection.innerHTML = `
+        <div class="subject-group">
+          <input type="text" class="subjectName" placeholder="Subject Name">
+          <input type="number" class="subjectMark" placeholder="Subject Mark (0-100)">
+          <button type="button" class="addSubjectBtn">Add Subject</button>
+        </div>
+      `;
+    }
+
+    // View Full Class Reports
+    async function viewClassReports() {
+      const className = prompt("Enter the class to view reports: ");
+      const response = await fetch(`http://localhost:5000/api/class/${className}`);
+
+      if (response.ok) {
+        const students = await response.json();
+        console.log(students);
+
+        // Display the full class report
+        let reportContent = '';
+        students.forEach(student => {
+          reportContent += `
+            <h4>${student.name} ${student.surname}</h4>
+            <ul>
+              ${student.subjects.map(subject => `
+                <li>${subject.name}: ${subject.mark} (${subject.grade})</li>
+              `).join('')}
+            </ul>
+          `;
+        });
+
+        reportDetails.innerHTML = reportContent;
+        reportCard.style.display = 'block';
+      } else {
+        alert('Error fetching class reports');
+      }
+    }
+  </script>
+</body>
+</html>
