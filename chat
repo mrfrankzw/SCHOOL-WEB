@@ -1,0 +1,13 @@
+now create me one to enter student marks 
+
+like
+ enter student name
+surname
+class
+year
+term
+add subject button 
+that allows me to enter subject name  then mark
+max subjects is 12. It should auto calculate grade if i enter student mark like A 90-100 B -80-90 c 70-80 D 60-70 E 50-60 U 40-50 then save it into something like a report page i can see to report.html in something like report form with name,surname class,year,term,number of subjects 
+
+then show the report card with grades below
